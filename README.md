@@ -160,8 +160,6 @@ const TorSpeech = require('tor-speech')
 
 -------- OTHER WORLD --------
 
-![enter image description here](/media/logo.png)
-
 ##### lang: [ru](#rulang) [en](#enlang)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "tor-speech",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Yandex & Google + Tor",
   "main": "index.js",
   "dependencies": {

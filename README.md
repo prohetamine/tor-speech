@@ -34,7 +34,7 @@ const TorSpeech = require('tor-speech')
 
 #### <a name="torspeech">TorSpeech</a>
 
-Функция [TorSpeech](#torspeech) инициализирует подключение к сети Tor принимает единственным параметром путь к бинарному файлу tor и возвращает объект с ключами: killTor, [yandex](#yandex), [google](#google), [langCodes](#langcodes), [saveFile](#saveFile). Не забывайте убивать процесс Tor если не используете модуль с помощью killTor.
+Функция [TorSpeech](#torspeech) инициализирует подключение к сети Tor принимает единственным параметром путь к бинарному файлу tor и возвращает объект с ключами: killTor, [yandex](#yandex), [google](#google), [langCodes](#langcodes), [saveFile](#savefile). Не забывайте убивать процесс Tor если не используете модуль с помощью killTor.
 
 ```sh
 const TorSpeech = require('tor-speech')
@@ -120,9 +120,9 @@ const langCodes = {
 }
 ```
 
-#### <a name="saveFile">saveFile</a>
+#### <a name="savefile">saveFile</a>
 
-Функция [saveFile](#saveFile) сохраняет base64 как аудиофайл.
+Функция [saveFile](#savefile) сохраняет base64 как аудиофайл.
 
 | параметры | значение по-умолчанию | обязательный | информация |
 | ------ | ------ | ------ | ------ |
@@ -194,7 +194,7 @@ const TorSpeech = require('tor-speech')
 
 #### <a name="torspeech">TorSpeech</a>
 
-The function [TorSpeech](#torspeech) initializes the connection to the Tor network takes the path to the tor binary file as a single parameter and returns an object with the keys: killTor, [yandex](#yandex), [google](#google), [langCodes](#langcodes), [saveFile](#saveFile). Don't forget to kill the Tor process if you don't use the module with killTor.
+The function [TorSpeech](#torspeech) initializes the connection to the Tor network takes the path to the tor binary file as a single parameter and returns an object with the keys: killTor, [yandex](#yandex), [google](#google), [langCodes](#langcodes), [saveFile](#savefile). Don't forget to kill the Tor process if you don't use the module with killTor.
 
 ```sh
 const TorSpeech = require('tor-speech')
@@ -280,9 +280,9 @@ const langCodes = {
 }
 ```
 
-#### <a name="saveFile">saveFile</a>
+#### <a name="savefile">saveFile</a>
 
-The [saveFile](#saveFile) function saves base64 as an audio file.
+The [saveFile](#savefile) function saves base64 as an audio file.
 
 | parameters | default value | required | information|
 | ------ | ------ | ------ | ------ |

@@ -1,21 +1,39 @@
 {
+  "name": "tor-speech",
+  "version": "1.0.0",
+  "description": "Yandex & Google + Tor",
+  "main": "index.js",
   "dependencies": {
     "@dreamed-atlas/tor-downloader": "^1.0.0",
-    "base64-to-file": "^1.1.0",
-    "convert-audio": "^1.0.1",
-    "pcm-util": "^3.0.0",
+    "child_process": "^1.0.2",
+    "fs": "^0.0.1-security",
+    "os": "^0.1.1",
+    "path": "^0.12.7",
     "stream": "^0.0.2",
     "tor-axios": "^1.0.9"
   },
-  "name": "tor-speech",
-  "version": "1.0.0",
-  "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node postinstall.js"
+    "test": "node test.js",
+    "postinstall": "node install-tor.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prohetamine/tor-speech.git"
+  },
+  "keywords": [
+    "text",
+    "speech",
+    "free",
+    "tor-speech",
+    "yandex",
+    "google",
+    "api"
+  ],
+  "author": "Stas Prohetamine",
   "license": "ISC",
-  "description": ""
+  "bugs": {
+    "url": "https://github.com/prohetamine/tor-speech/issues"
+  },
+  "homepage": "https://github.com/prohetamine/tor-speech#readme"
 }

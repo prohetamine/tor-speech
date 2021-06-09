@@ -28,7 +28,8 @@ const { join }            = require('path')
     console.log(`
 /*
  *
- * Install tor separately and use the path
+ * Tor has not been installed or has already been installed
+ * Install tor manually and use the path
  * just like in the following example below
  *
  */

@@ -64,7 +64,7 @@ const TorSpeech = require('tor-speech')
   const { killTor, google, langCodes } = await TorSpeech()
 
   const result = await google({
-    text: 'Привет как дела ?',
+    text: 'Привет, как дела ?',
     langCode: langCodes.russian
   })
 
@@ -92,7 +92,7 @@ const TorSpeech = require('tor-speech')
   const { killTor, yandex, langCodes } = await TorSpeech()
 
   const result = await yandex({
-    text: 'Привет как дела ?',
+    text: 'Привет, как дела ?',
     langCode: langCodes.russian
   })
 
@@ -136,7 +136,7 @@ const TorSpeech = require('tor-speech')
   const { killTor, yandex, langCodes } = await TorSpeech()
 
   const base64 = await yandex({
-    text: 'Привет как дела ?',
+    text: 'Привет, как дела ?',
     langCode: langCodes.russian
   })
 

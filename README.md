@@ -32,9 +32,9 @@ $ yarn add tor-speech
 const TorSpeech = require('tor-speech')
 ```
 
-#### <a name="torspeechru">TorSpeech</a>
+#### <a name="torspeech">TorSpeech</a>
 
-Функция [TorSpeech](#torspeechru) инициализирует подключение к сети Tor принимает единственным параметром путь к бинарному файлу tor и возвращает объект с ключами: killTor, [yandex](#yandexru), [google](#googleru), [langCodes](#langcodesru), [saveFile](#savefileru). Не забывайте убивать процесс Tor если не используете модуль с помощью killTor.
+Функция [TorSpeech](#torspeech) инициализирует подключение к сети Tor принимает единственным параметром путь к бинарному файлу tor и возвращает объект с ключами: killTor, [yandex](#yandex), [google](#google), [langCodes](#langcodes), [saveFile](#savefile). Не забывайте убивать процесс Tor если не используете модуль с помощью killTor.
 
 ```sh
 const TorSpeech = require('tor-speech')
@@ -46,9 +46,9 @@ const TorSpeech = require('tor-speech')
 })()
 ```
 
-#### <a name="googleru">google</a>
+#### <a name="google">google</a>
 
-Функция [google](#googleru) идентична функции [yandex](#yandexru) принимает объект среди ключей которого text и [langCodes](#langcodesru) возвращает null или аудиофайл в base64.
+Функция [google](#google) идентична функции [yandex](#yandex) принимает объект среди ключей которого text и [langCodes](#langcodes) возвращает null или аудиофайл в base64.
 
 ##### object
 
@@ -74,9 +74,9 @@ const TorSpeech = require('tor-speech')
 })()
 ```
 
-#### <a name="yandexru">yandex</a>
+#### <a name="yandex">yandex</a>
 
-Функция [yandex](#yandexru) идентична функции [google](#googleru) принимает объект среди ключей которого text и [langCodes](#langcodesru) возвращает null или аудиофайл в base64.
+Функция [yandex](#yandex) идентична функции [google](#google) принимает объект среди ключей которого text и [langCodes](#langcodes) возвращает null или аудиофайл в base64.
 
 ##### object
 
@@ -102,9 +102,9 @@ const TorSpeech = require('tor-speech')
 })()
 ```
 
-#### <a name="langcodesru">langCodes</a>
+#### <a name="langcodes">langCodes</a>
 
-Объект [langCode](#langcodesru) это набор языковых кодов для [yandex](#yandexru) и [google](#googleru) синтезаторов.
+Объект [langCode](#langcodes) это набор языковых кодов для [yandex](#yandex) и [google](#google) синтезаторов.
 
 ##### object
 
@@ -120,9 +120,9 @@ const langCodes = {
 }
 ```
 
-#### <a name="savefileru">saveFile</a>
+#### <a name="savefile">saveFile</a>
 
-Функция [saveFile](#savefileru) сохраняет base64 как аудиофайл.
+Функция [saveFile](#savefile) сохраняет base64 как аудиофайл.
 
 | параметры | значение по-умолчанию | обязательный | информация |
 | ------ | ------ | ------ | ------ |
@@ -192,9 +192,9 @@ Connecting the module
 const TorSpeech = require('tor-speech')
 ```
 
-#### <a name="torspeechen">TorSpeech</a>
+#### <a name="torspeech">TorSpeech</a>
 
-The function [TorSpeech](#torspeechen) initializes the connection to the Tor network takes the path to the tor binary file as a single parameter and returns an object with the keys: killTor, [yandex](#yandexen), [google](#googleen), [langCodes](#langcodesen), [saveFile](#savefileen). Don't forget to kill the Tor process if you don't use the module with killTor.
+The function [TorSpeech](#torspeech) initializes the connection to the Tor network takes the path to the tor binary file as a single parameter and returns an object with the keys: killTor, [yandex](#yandex), [google](#google), [langCodes](#langcodes), [saveFile](#savefile). Don't forget to kill the Tor process if you don't use the module with killTor.
 
 ```sh
 const TorSpeech = require('tor-speech')
@@ -206,9 +206,9 @@ const TorSpeech = require('tor-speech')
 })()
 ```
 
-#### <a name="googleen">google</a>
+#### <a name="google">google</a>
 
-The function [google](#googleen) is identical to the function [yandex](#yandexen) accepts an object whose keys include text and [langCodes](#langcodesen) returns null or an audio file in base64.
+The function [google](#google) is identical to the function [yandex](#yandex) accepts an object whose keys include text and [langCodes](#langcodes) returns null or an audio file in base64.
 
 ##### object
 
@@ -234,9 +234,9 @@ const TorSpeech = require('tor-speech')
 })()
 ```
 
-#### <a name="yandexen">yandex</a>
+#### <a name="yandex">yandex</a>
 
-The function [yandex](#yandexen) is identical to the function [google](#googleen) accepts an object whose keys include text and [langCodes](#langcodesen) returns null or an audio file in base64.
+The function [yandex](#yandex) is identical to the function [google](#google) accepts an object whose keys include text and [langCodes](#langcodes) returns null or an audio file in base64.
 
 ##### object
 
@@ -262,9 +262,9 @@ const TorSpeech = require('tor-speech')
 })()
 ```
 
-#### <a name="langcodesen">langCodes</a>
+#### <a name="langcodes">langCodes</a>
 
-Object[langCode](#langcodesen) this is a set of language codes for [yandex](#yandexen) and [google](#googleen) synthesizers.
+Object[langCode](#langcodes) this is a set of language codes for [yandex](#yandex) and [google](#google) synthesizers.
 
 ##### object
 
@@ -280,9 +280,9 @@ const langCodes = {
 }
 ```
 
-#### <a name="savefileen">saveFile</a>
+#### <a name="savefile">saveFile</a>
 
-The [saveFile](#savefileen) function saves base64 as an audio file.
+The [saveFile](#savefile) function saves base64 as an audio file.
 
 | parameters | default value | required | information|
 | ------ | ------ | ------ | ------ |

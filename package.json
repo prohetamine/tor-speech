@@ -1,7 +1,7 @@
 {
   "name": "tor-speech",
-  "version": "1.0.8",
-  "description": "Yandex & Google + Tor",
+  "version": "1.0.9",
+  "description": "Text speech api Yandex & Google + Tor",
   "main": "index.js",
   "dependencies": {
     "@dreamed-atlas/tor-downloader": "^1.0.0",
@@ -25,10 +25,17 @@
     "text",
     "speech",
     "free",
-    "tor-speech",
+    "tor speech",
     "yandex",
     "google",
-    "api"
+    "api",
+    "tts",
+    "text to speech",
+    "texttospeech",
+    "yandex speech",
+    "google speech",
+    "speech api",
+    "read text"
   ],
   "author": "Stas Prohetamine",
   "license": "ISC",

@@ -165,7 +165,7 @@ const TorSpeech = require('tor-speech')
 ##### lang: [ru](#rulang) [en](#enlang)
 
 
-# <a name="rulang">tor-speech</a>
+# <a name="enlang">tor-speech</a>
 
 > tor-speech - Speech synthesizer from text.
 

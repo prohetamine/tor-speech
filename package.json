@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@dreamed-atlas/tor-downloader": "^1.0.0",
+    "base64-to-file": "^1.1.0",
+    "convert-audio": "^1.0.1",
+    "pcm-util": "^3.0.0",
+    "stream": "^0.0.2",
+    "tor-axios": "^1.0.9"
+  },
+  "name": "tor-speech",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node postinstall.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -133,7 +133,7 @@ const langCodes = {
 const TorSpeech = require('tor-speech')
 
 ;(async () => {
-  const { killTor, yandex, langCodes } = await TorSpeech()
+  const { killTor, yandex, langCodes, saveFile } = await TorSpeech()
 
   const base64 = await yandex({
     text: 'Привет, как дела ?',
@@ -293,7 +293,7 @@ The [saveFile](#savefile) function saves base64 as an audio file.
 const TorSpeech = require('tor-speech')
 
 ;(async () => {
-  const { killTor, google, langCodes } = await TorSpeech()
+  const { killTor, google, langCodes, saveFile } = await TorSpeech()
 
   const base64 = await google({
     text: 'Hi, how are you?',

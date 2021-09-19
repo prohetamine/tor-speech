@@ -3,7 +3,7 @@
 ##### README is available in the following languages: [Russian](https://github.com/prohetamine/tor-speech/blob/main/README/russian.md) | [English](https://github.com/prohetamine/tor-speech/blob/main/README.md)
 
 
-# tor-speech
+# Tor Speech
 
 > tor-speech - Speech synthesizer from text.
 

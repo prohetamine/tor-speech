@@ -13,6 +13,23 @@ const langCodes = {
   english: { yandex: 'en_EN', google: 'en' }
 }
 
+var writeFileSync = function (path, buffer, permission) {
+  permission = permission || 438; // 0666
+  var fileDescriptor;
+
+  try {
+      fileDescriptor = fs.openSync(path, 'w', permission);
+    } catch (e) {
+      fs.chmodSync(path, permission);
+      fileDescriptor = fs.openSync(path, 'w', permission);
+    }
+    
+    if (fileDescriptor) {
+      fs.writeSync(fileDescriptor, buffer, 0, buffer.length, 0);
+      fs.closeSync(fileDescriptor);
+  }
+}
+
 module.exports = async (path = null) => {
   const killTor = await new Promise((resolve, reject) => {
       const torProcess = spawn(path || torBinaryPath)
@@ -34,12 +51,7 @@ module.exports = async (path = null) => {
     saveFile: (base64 = null, path = null) => {
       try {
         const buffer = Buffer.from(base64.replace('data:audio/wav;base64,', ''), 'base64')
-            , stream = new Readable()
-
-        stream.push(buffer)
-        stream.push(null)
-        stream.pipe(fs.createWriteStream(path))
-
+        writeFileSync(path, buffer);
         return true
       } catch (e) {
         console.log(e)

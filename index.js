@@ -1,6 +1,7 @@
 const tor_axios       = require('tor-axios')
     , { join }        = require('path')
     , { spawn }       = require('child_process')
+    , kill            = require('tree-kill')
     , { tmpdir }      = require('os')
     , fs              = require('fs')
     , Readable        = require('stream').Readable
@@ -30,16 +31,22 @@ var writeFileSync = function (path, buffer, permission) {
   }
 }
 
-module.exports = async (path = null) => {
+module.exports = async (path = '') => {
+  
+  if( !path &&  process.platform === 'win32' ) {
+    const { USERPROFILE } = process.env;
+    path = `${USERPROFILE}\\Desktop\\Tor Browser\\Browser\\firefox.exe`; 
+  }
   const killTor = await new Promise((resolve, reject) => {
       const torProcess = spawn(path || torBinaryPath)
       const killed = () => torProcess.kill()
+      kill(torProcess.pid)
       torProcess.on('error', reject)
       torProcess.on('exit', code => resolve(code))
       torProcess.stderr.on('data', chunk => console.error(String(chunk)))
       torProcess.stdout.on('data', chunk => !!String(chunk).match(/100%/) && resolve(killed))
   })
-
+  
   const tor = tor_axios.torSetup({
       ip: 'localhost',
       port: 9050,

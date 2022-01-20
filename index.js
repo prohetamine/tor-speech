@@ -14,14 +14,16 @@ const langCodes = {
 }
 
 module.exports = async (path = null) => {
-  const killTor = await new Promise((resolve, reject) => {
+ const killTor = () => { 
+    return new Promise((resolve, reject) => {
       const torProcess = spawn(path || torBinaryPath)
       const killed = () => torProcess.kill()
       torProcess.on('error', reject)
       torProcess.on('exit', code => resolve(code))
       torProcess.stderr.on('data', chunk => console.error(String(chunk)))
       torProcess.stdout.on('data', chunk => !!String(chunk).match(/100%/) && resolve(killed))
-  })
+    })
+  }
 
   const tor = tor_axios.torSetup({
       ip: 'localhost',

@@ -31,7 +31,7 @@ var writeFileSync = function (path, buffer, permission) {
   }
 }
 
-const createRequest = async (path = '', debug = false, isExit = false) => {
+const createRequest = async (path = null, debug = false, isExit = false) => {
   if(!path && process.platform === 'win32') {
     const { USERPROFILE } = process.env;
     path = `${USERPROFILE}\\Desktop\\Tor Browser\\Browser\\firefox.exe`;
@@ -39,8 +39,10 @@ const createRequest = async (path = '', debug = false, isExit = false) => {
 
   const killTor = await new Promise((resolve, reject) => {
       const torProcess = spawn(path || torBinaryPath)
-      const killed = () => torProcess.kill()
-      kill(torProcess.pid)
+      const killed = () => {
+        torProcess.kill()
+        kill(torProcess.pid)
+      }
       torProcess.on('error', reject)
       torProcess.on('exit', code => resolve(code))
       torProcess.stderr.on('data', chunk => console.error(String(chunk)))

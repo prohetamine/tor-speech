@@ -1,6 +1,7 @@
 const tor_axios       = require('tor-axios')
     , { join }        = require('path')
     , { spawn }       = require('child_process')
+    , kill            = require('tree-kill')
     , { tmpdir }      = require('os')
     , fs              = require('fs')
     , Readable        = require('stream').Readable
@@ -13,18 +14,39 @@ const langCodes = {
   english: { yandex: 'en_EN', google: 'en' }
 }
 
-module.exports = async (path = null) => {
- const killTor = () => { 
-    return new Promise((resolve, reject) => {
+var writeFileSync = function (path, buffer, permission) {
+  permission = permission || 438; // 0666
+  var fileDescriptor;
+
+  try {
+      fileDescriptor = fs.openSync(path, 'w', permission);
+    } catch (e) {
+      fs.chmodSync(path, permission);
+      fileDescriptor = fs.openSync(path, 'w', permission);
+    }
+    
+    if (fileDescriptor) {
+      fs.writeSync(fileDescriptor, buffer, 0, buffer.length, 0);
+      fs.closeSync(fileDescriptor);
+  }
+}
+
+module.exports = async (path = '') => {
+  
+  if( !path &&  process.platform === 'win32' ) {
+    const { USERPROFILE } = process.env;
+    path = `${USERPROFILE}\\Desktop\\Tor Browser\\Browser\\firefox.exe`; 
+  }
+  const killTor = await new Promise((resolve, reject) => {
       const torProcess = spawn(path || torBinaryPath)
       const killed = () => torProcess.kill()
+      kill(torProcess.pid)
       torProcess.on('error', reject)
       torProcess.on('exit', code => resolve(code))
       torProcess.stderr.on('data', chunk => console.error(String(chunk)))
       torProcess.stdout.on('data', chunk => !!String(chunk).match(/100%/) && resolve(killed))
-    })
-  }
-
+  })
+  
   const tor = tor_axios.torSetup({
       ip: 'localhost',
       port: 9050,
@@ -36,12 +58,7 @@ module.exports = async (path = null) => {
     saveFile: (base64 = null, path = null) => {
       try {
         const buffer = Buffer.from(base64.replace('data:audio/wav;base64,', ''), 'base64')
-            , stream = new Readable()
-
-        stream.push(buffer)
-        stream.push(null)
-        stream.pipe(fs.createWriteStream(path))
-
+        writeFileSync(path, buffer);
         return true
       } catch (e) {
         console.log(e)

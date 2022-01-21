@@ -1,7 +1,7 @@
 const TorSpeech = require('./index.js')
 
 ;(async () => {
-  const { killTor, google, yandex, langCodes, saveFile } = await TorSpeech(/* path */)
+  const { killTor, killTor2, google, yandex, langCodes, saveFile } = await TorSpeech(/* path */)
 
   const rYandex = await yandex({
     text: 'Привет, как дела ?',
@@ -22,5 +22,4 @@ const TorSpeech = require('./index.js')
   console.log(isSaveYandex)
   console.log(isSaveGoogle)
 
-  killTor()
 })()

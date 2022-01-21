@@ -24,19 +24,19 @@ var writeFileSync = function (path, buffer, permission) {
       fs.chmodSync(path, permission);
       fileDescriptor = fs.openSync(path, 'w', permission);
     }
-    
+
     if (fileDescriptor) {
       fs.writeSync(fileDescriptor, buffer, 0, buffer.length, 0);
       fs.closeSync(fileDescriptor);
   }
 }
 
-module.exports = async (path = '') => {
-  
-  if( !path &&  process.platform === 'win32' ) {
+const createRequest = async (path = '', debug = false, isExit = false) => {
+  if(!path && process.platform === 'win32') {
     const { USERPROFILE } = process.env;
-    path = `${USERPROFILE}\\Desktop\\Tor Browser\\Browser\\firefox.exe`; 
+    path = `${USERPROFILE}\\Desktop\\Tor Browser\\Browser\\firefox.exe`;
   }
+
   const killTor = await new Promise((resolve, reject) => {
       const torProcess = spawn(path || torBinaryPath)
       const killed = () => torProcess.kill()
@@ -44,13 +44,26 @@ module.exports = async (path = '') => {
       torProcess.on('error', reject)
       torProcess.on('exit', code => resolve(code))
       torProcess.stderr.on('data', chunk => console.error(String(chunk)))
-      torProcess.stdout.on('data', chunk => !!String(chunk).match(/100%/) && resolve(killed))
+      torProcess.stdout.on('data', chunk => {
+        debug && console.log(chunk+'')
+        return !!String(chunk).match(/100%/) && resolve(killed)
+      })
   })
-  
+
   const tor = tor_axios.torSetup({
       ip: 'localhost',
       port: 9050,
   })
+
+  if (typeof(killTor) === 'number') {
+    if (isExit) {
+      process.exit(0)
+    }
+    console.error('Failed to launch tor browser:', killTor)
+    console.error('Start debug:')
+    await createRequest(path, true, true)
+    console.error('End debug.')
+  }
 
   return ({
     killTor,
@@ -99,3 +112,5 @@ module.exports = async (path = '') => {
       )
   })
 }
+
+module.exports = createRequest

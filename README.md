@@ -28,7 +28,7 @@ $ yarn add tor-speech
 
 Connecting the module
 
-```sh
+```javascript
 const TorSpeech = require('tor-speech')
 ```
 
@@ -36,7 +36,7 @@ const TorSpeech = require('tor-speech')
 
 The function [TorSpeech](#torspeech) initializes the connection to the Tor network takes the path to the tor binary file as a single parameter and returns an object with the keys: killTor, [yandex](#yandex), [google](#google), [langCodes](#langcodes), [saveFile](#savefile). Don't forget to kill the Tor process if you don't use the module with killTor.
 
-```sh
+```javascript
 const TorSpeech = require('tor-speech')
 
 ;(async () => {
@@ -57,7 +57,7 @@ The function [google](#google) is identical to the function [yandex](#yandex) ac
 | text | text | test tor-speech module | no | script |
 | langCode | object | langCodes. russian | no | script language |
 
-```sh
+```javascript
 const TorSpeech = require('tor-speech')
 
 ;(async () => {
@@ -85,7 +85,7 @@ The function [yandex](#yandex) is identical to the function [google](#google) ac
 | text | text | test tor-speech module | no | script |
 | langCode | object | langCodes.russian | no | script language
 
-```sh
+```javascript
 const TorSpeech = require('tor-speech')
 
 ;(async () => {
@@ -113,7 +113,7 @@ Object[langCode](#langcodes) this is a set of language codes for [yandex](#yande
 | russian | ru_RU | ru |
 | english | en_EN | en |
 
-```sh
+```javascript
 const langCodes = {
   russian: { yandex: 'ru_RU', google: 'ru' },
   english: { yandex: 'en_EN', google: 'en' }
@@ -129,7 +129,7 @@ The [saveFile](#savefile) function saves base64 as an audio file.
 | string | null | yes | base64 string |
 | string | null | yes | path to save the audio file |
 
-```sh
+```javascript
 const TorSpeech = require('tor-speech')
 
 ;(async () => {

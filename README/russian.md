@@ -28,7 +28,7 @@ $ yarn add tor-speech
 
 Подключение модуля
 
-```sh
+```javascript
 const TorSpeech = require('tor-speech')
 ```
 
@@ -36,7 +36,7 @@ const TorSpeech = require('tor-speech')
 
 Функция [TorSpeech](#torspeech) инициализирует подключение к сети Tor принимает единственным параметром путь к бинарному файлу tor и возвращает объект с ключами: killTor, [yandex](#yandex), [google](#google), [langCodes](#langcodes), [saveFile](#savefile). Не забывайте убивать процесс Tor если не используете модуль с помощью killTor.
 
-```sh
+```javascript
 const TorSpeech = require('tor-speech')
 
 ;(async () => {
@@ -57,7 +57,7 @@ const TorSpeech = require('tor-speech')
 | text | text | test tor-speech module | нет | сценарий |
 | langCode | object | langCodes.russian | нет | язык сценария |
 
-```sh
+```javascript
 const TorSpeech = require('tor-speech')
 
 ;(async () => {
@@ -85,7 +85,7 @@ const TorSpeech = require('tor-speech')
 | text | text | test tor-speech module | нет | сценарий |
 | langCode | object | langCodes.russian | нет | язык сценария |
 
-```sh
+```javascript
 const TorSpeech = require('tor-speech')
 
 ;(async () => {
@@ -113,7 +113,7 @@ const TorSpeech = require('tor-speech')
 | russian | ru_RU | ru |
 | english | en_EN | en |
 
-```sh
+```javascript
 const langCodes = {
   russian: { yandex: 'ru_RU', google: 'ru' },
   english: { yandex: 'en_EN', google: 'en' }
@@ -129,7 +129,7 @@ const langCodes = {
 | string | null | да | строка в base64 |
 | string | null | да | путь сохранения аудиофайла |
 
-```sh
+```javascript
 const TorSpeech = require('tor-speech')
 
 ;(async () => {
